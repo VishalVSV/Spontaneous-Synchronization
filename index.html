@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Spontaneous Synchronization</title>
+        <meta charset="utf-8"/>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+
+            .canvas_container {
+                width: 100%;
+                text-align: center;
+            }
+
+            canvas {
+                background-color: rgb(245, 245, 245);
+                border: 2px solid black;
+                margin: auto;
+            }
+
+            div.inputs {
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 10px;
+            }
+
+            div.container {
+                display: flexbox;
+            }
+
+            .input_float
+            {
+                float: left;
+            }
+        </style>
+        <script src="js/kuramoto.js" defer></script>
+        <script src="js/pendulum.js" defer></script>
+        <script src="js/drawing.js" defer></script>
+    </head>
+    <body>
+        <div id="data"></div>
+        <div class="canvas_container">
+            <canvas id="canvas">
+
+            </canvas>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="inputs">
+                <label for="num_pendulums">Number of pendulums*:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+                <input type="range" min="2" max="15" value="10" id="num_pendulums" oninput="onChange()" class="input_float" autocomplete="off">
+            </div>
+            <div class="inputs">
+                <label for="k_val">Coupling Constant*:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+                <input type="number" min="0.01" value="0.05" id="k_val" oninput="onChange()" step="0.01" class="input_float" autocomplete="off">
+            </div>
+            <div class="inputs">
+                <label for="length_p">Length of the pendulum:</label> 
+                <input type="number" min="10" value="200" id="length_p" oninput="softChange()" step="2" class="input_float" autocomplete="off">
+            </div>
+            <div class="inputs">
+                <label for="gravity">Gravity: </label> 
+                <input type="number" min="0" value="100" id="gravity" oninput="softChange()" step="1" class="input_float" autocomplete="off">
+            </div>
+            <div class="inputs">
+                <button onclick="start_sim()">Start Simulation</button>
+            </div>
+            <div class="inputs" style="padding-bottom: 20px;"></div>
+            <div class="inputs">* Will reset simulation</div>
+        </div>
+    </body>
+</html>
