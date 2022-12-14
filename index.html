@@ -12,6 +12,8 @@
             .canvas_container {
                 width: 100%;
                 text-align: center;
+                display: flexbox;
+                flex-direction: row;
             }
 
             canvas {
@@ -47,6 +49,9 @@
             <canvas id="canvas">
 
             </canvas>
+            <canvas id="graph">
+
+            </canvas>
         </div>
         <br>
         <br>
@@ -58,7 +63,11 @@
             </div>
             <div class="inputs">
                 <label for="k_val">Coupling Constant*:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
-                <input type="number" min="0.01" value="0.05" id="k_val" oninput="onChange()" step="0.01" class="input_float" autocomplete="off">
+                <input type="number" min="0.01" value="0.05" id="k_val" oninput="softChange()" step="0.01" class="input_float" autocomplete="off">
+            </div>
+            <div class="inputs">
+                <label for="phase_spread">Initial Phase Spread*:&nbsp;&nbsp;&nbsp;&nbsp;</label> 
+                <input type="number" min="0.22" value="0.22" id="phase_spread" oninput="onChange()" step="0.01" class="input_float" autocomplete="off">
             </div>
             <div class="inputs">
                 <label for="length_p">Length of the pendulum:</label> 
